@@ -1,21 +1,25 @@
-### week 1
-wij gingen naar de speelklok museum we zagen veel interesante dingen zoals een muziek kam een cylinder een piano en het belangerijkste onze inspiratie een muziekstoel.
-isaiah, furkan en othman hebben ervoor gekozen om een muziekstoel te maken. met verschillende inputs en outputs. onze inputs zijn gewoorden een knop en een ultrasonic sensor (distance sensor)
-onze outputs zijn gewoorden een trommel met een houten hammer. belletjes die hangen aan een stokje om ze te laten rinkelen en als laatste een muziekdoosje die een muziek kam en cylinder er in heeft
+Muziekstoel — Weekverslagen
+Week 1
 
-### week 2
-in week 2 hadden wij de basis op gezet en dingen gekocht. we gingen naar een kringloop voor een mooie stoel daar gingen wij ook een trommel halen met een hammer en ook onze belletjes daar gehaalt.
-dus toen gingen wij onze andere materialen er bij halen zoals de arduino uno, de breadboard, de bedrading, ultrasonic sensor en ook 3 servos. toen hadden wij een beetje gecodeert om een basis te maken en uiteindelijk haden wij een prototype 
+Wij gingen naar het Speelklokmuseum. We zagen veel interessante dingen, zoals een muziekkamer, een cilinder, een piano en — het belangrijkste — onze inspiratie: een muziekstoel.
+Isaiah, Furkan en Othman hebben ervoor gekozen om een muziekstoel te maken met verschillende inputs en outputs.
 
+Inputs: een knop en een ultrasone sensor (afstandssensor).
 
-### week 3
-in week 3 haden wij dus al onze prototype dus het enigste dat wij nog moesten doen is het in onze stoel zetten maar dat is simpeler gezegt dan gedaan.
-wij hebben aan veel dingen zitten denken maar er was geen een manier om het goed onder de stoel te verstoppen dus wij hadden besloten om de hele prototype om te gooien en dingen te proberen aan het einde van de week haden wij al veel geprobeerd
-maar niks goed kwam er uit
+Outputs: een trommel met een houten hamer, belletjes die aan een stokje hangen om te laten rinkelen, en tot slot een muziekdoosje met een muziekkam en cilinder.
 
-### week 4
-in week 4 hebben wij andere servos gepakt en nieuwe manieren geprobeerd om de belletjes te laten ringen en de hammer op de trommel te laten slaan. we missen wel wat hout dus wij zitten nu daarop te wachten zodat wij kunnen beginnen aan de behuizing.
-we hebben de video al gemaakt het test rapport hebben wij ook gemaakt en het powerpoint presentatie ook.
+Week 2
 
+In week 2 hebben we de basis opgezet en spullen gekocht. We gingen naar een kringloopwinkel om een mooie stoel te zoeken; daar hebben we ook een trommel met hamer en de belletjes gevonden.
+Verder hebben we andere materialen verzameld, zoals de Arduino Uno, een breadboard, bedrading, de ultrasone sensor en drie servomotoren. We hebben alvast wat code geschreven voor een basisprototype en uiteindelijk hadden we een werkend prototype.
 
-geschreven door: Othman
+Week 3
+
+In week 3 hadden we ons prototype klaar, dus het enige dat nog moest gebeuren was het in de stoel plaatsen — maar dat is makkelijker gezegd dan gedaan. We hebben veel opties onderzocht, maar er was geen goede manier om alles netjes onder de stoel te verbergen. Daarom besloten we het prototype helemaal om te gooien en verschillende nieuwe ideeën uit te proberen. Aan het einde van de week hadden we al veel geprobeerd, maar niets werkte naar wens.
+
+Week 4
+
+In week 4 hebben we andere servomotoren gebruikt en nieuwe methodes geprobeerd om de belletjes te laten rinkelen en de hamer op de trommel te laten slaan. We missen nog wat hout; zodra dat er is, kunnen we beginnen met de behuizing.
+We hebben de video al opgenomen; ook het testrapport en de PowerPoint-presentatie zijn klaar.
+
+Geschreven door: Othman
