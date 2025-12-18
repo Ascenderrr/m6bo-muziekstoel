@@ -1,33 +1,33 @@
 #include <Servo.h>
-#include <math.h> // for sin()
+#include <math.h>
 
-Servo blueServo1;   // original blue servo
-Servo blueServo2;   // new blue servo
-Servo spinServo;    // continuous rotation servo
+Servo blueServo1;
+Servo blueServo2;
+Servo spinServo;   // continuous rotation servo
 
 const int buttonPin = 2;
 const int trigPin = 3;
 const int echoPin = 4;
 
-// Blue servo smooth shake parameters
+// Blue servo shake parameters
 const int shakeCenter = 90;
-const int shakeAmplitude = 15;   
-const float shakeFrequency = 0.005; 
+const int shakeAmplitude = 15;
+const float shakeFrequency = 0.005;
 unsigned long startTime = 0;
 
-// Ultrasonic sensor timing
+// Ultrasonic sensor
 unsigned long lastUltrasonicTime = 0;
-const int ultrasonicInterval = 150; 
+const int ultrasonicInterval = 150;
 long distance = 0;
 bool objectIsClose = false;
 
 // Serial monitor timing
 unsigned long lastSerialTime = 0;
-const int serialInterval = 150; // print every 150ms
+const int serialInterval = 150;
 
-// 360° servo spin speed
-const int spinStop = 90;       
-const int spinSpeed = 140;     
+// 360° servo microseconds
+const int spinStop = 1500;     // STOP
+const int spinFull = 2000;     // FULL SPEED FORWARD
 
 void setup() {
   Serial.begin(9600);
@@ -42,7 +42,7 @@ void setup() {
 
   blueServo1.write(shakeCenter);
   blueServo2.write(shakeCenter);
-  spinServo.write(spinStop);
+  spinServo.writeMicroseconds(spinStop);
 
   startTime = millis();
   Serial.println("System Ready");
@@ -52,7 +52,8 @@ void loop() {
   unsigned long currentTime = millis();
 
   // -------- BUTTON --------
-  bool buttonReleased = (digitalRead(buttonPin) == HIGH);
+  bool buttonPressed = (digitalRead(buttonPin) == LOW); // Button pressed means LOW
+  bool buttonReleased = (digitalRead(buttonPin) == HIGH); // Button released means HIGH
 
   // -------- ULTRASONIC SENSOR --------
   if (currentTime - lastUltrasonicTime >= ultrasonicInterval) {
@@ -63,67 +64,53 @@ void loop() {
     digitalWrite(trigPin, HIGH);
     delayMicroseconds(10);
     digitalWrite(trigPin, LOW);
-<<<<<<< HEAD
- 
-    long duration = pulseIn(echoPin, HIGH);
-    long distance = (duration / 2) / 29.1;
- 
-    Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.println(" cm");
- 
-    if (distance >= 0 && distance <= triggerDistance) {
-      servoDistance1.writeMicroseconds(forwardPulseDistance);
-      servoDistance2.writeMicroseconds(forwardPulseDistance);
-    } else {
-      servoDistance1.writeMicroseconds(stopPulseDistance);
-      servoDistance2.writeMicroseconds(stopPulseDistance);
-=======
 
-    long duration = pulseIn(echoPin, HIGH, 30000); 
-    if (duration > 0) {  
-      distance = duration * 0.034 / 2;  
+    long duration = pulseIn(echoPin, HIGH, 30000);
+    if (duration > 0) {
+      distance = duration * 0.034 / 2;
       objectIsClose = (distance <= 8);
->>>>>>> 0a0171d37950d5bb30a3d40e19b6b133666825f5
     }
   }
 
-  // -------- BLUE SERVOS (SMOOTH UP-AND-DOWN SHAKE) --------
+  // -------- CONTINUOUS ROTATION SERVO --------
+  // Activate when BUTTON is RELEASED and OBJECT is CLOSE
   if (buttonReleased && objectIsClose) {
-    float elapsed = currentTime - startTime;
-    int offset = shakeAmplitude * sin(2 * 3.1416 * shakeFrequency * elapsed);
-    int servoPos = shakeCenter + offset;
-
-    blueServo1.write(servoPos);
-    blueServo2.write(servoPos);
+    spinServo.writeMicroseconds(spinFull);   // FULL SPEED
   } else {
+    spinServo.writeMicroseconds(spinStop);   // STOP
+  }
+
+  // -------- BLUE SERVOS (SHAKE) --------
+  // If spin servo is active, turn off blue servos
+  if (spinServo.readMicroseconds() == spinFull) {
     blueServo1.write(shakeCenter);
     blueServo2.write(shakeCenter);
-    startTime = currentTime; 
-  }
-
-  // -------- CONTINUOUS ROTATION SERVO --------
-  if (buttonReleased) {
-    spinServo.write(spinSpeed);
   } else {
-    spinServo.write(spinStop);
+    // Activate blue servos when BUTTON is RELEASED
+    if (buttonReleased) {
+      float elapsed = currentTime - startTime;
+      int offset = shakeAmplitude * sin(2 * PI * shakeFrequency * elapsed);
+      int servoPos = shakeCenter + offset;
+
+      blueServo1.write(servoPos);
+      blueServo2.write(servoPos);
+    } else {
+      blueServo1.write(shakeCenter);
+      blueServo2.write(shakeCenter);
+      startTime = currentTime;
+    }
   }
 
-  // -------- SERIAL MONITOR (THROTTLED) --------
+  // -------- SERIAL MONITOR --------
   if (currentTime - lastSerialTime >= serialInterval) {
     lastSerialTime = currentTime;
     Serial.print("Button Released: ");
     Serial.print(buttonReleased);
     Serial.print(" | Distance: ");
     Serial.print(distance);
-    Serial.print(" cm");
-    Serial.print(" | Object Close: ");
+    Serial.print(" cm | Object Close: ");
     Serial.println(objectIsClose);
   }
 
-  delay(1); // smooth loop
+  delay(1);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 0a0171d37950d5bb30a3d40e19b6b133666825f5
