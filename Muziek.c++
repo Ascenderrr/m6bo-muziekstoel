@@ -63,7 +63,7 @@ void loop() {
     Serial.print(distance);
     Serial.println(" cm");
  
-    if (distance > 0 && distance <= triggerDistance) {
+    if (distance >= 0 && distance <= triggerDistance) {
       servoDistance1.writeMicroseconds(forwardPulseDistance);
       servoDistance2.writeMicroseconds(forwardPulseDistance);
     } else {
@@ -77,5 +77,4 @@ void loop() {
  
   delay(50);
 }
- 
- 
+
