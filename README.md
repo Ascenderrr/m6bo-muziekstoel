@@ -23,3 +23,8 @@ In week 4 hebben we andere servomotoren gebruikt en nieuwe methodes geprobeerd o
 We hebben de video al opgenomen; ook het testrapport en de PowerPoint-presentatie zijn klaar.
 
 Geschreven door: Othman
+
+Week 5
+
+In week 5 hebben we gewerkt aan het automatisch laten draaien van de muziekkam met een servomotor. We hebben verschillende tests gedaan om te kijken of dit goed zou werken en of de servo sterk genoeg was. Het idee was om de muziekkam later samen met de andere apparaten te kunnen gebruiken.
+Daarnaast hebben we de muziekkam aangesloten op de andere onderdelen om te testen of alles samen functioneert. We hebben vooral gekeken of de aansturing goed liep en of er geen problemen waren met de verbindingen. Er is nog niets in de stoel geplaatst, maar deze week heeft ons wel geholpen om beter te begrijpen hoe we alles later kunnen opbouwen.
